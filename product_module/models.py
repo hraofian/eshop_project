@@ -2,4 +2,5 @@ from django.db import models
 
 
 class Product(models.Model)
-    pass
+    title = models.CharField(max_length=300)
+    price = models.IntegerField()
