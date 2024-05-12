@@ -1,6 +1,6 @@
-from django.db import models
+# from django.db import models
 
 
-class Product(models.Model)
-    title = models.CharField(max_length=300)
-    price = models.IntegerField()
+# class Product(models.Model)
+#     title = models.CharField(max_length=300)
+#     price = models.IntegerField()
