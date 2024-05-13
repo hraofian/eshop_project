@@ -4,9 +4,17 @@ from django.core.validators import MinValueValidator , MaxValueValidator
 from django.urls import reverse
 from django.utils.text import slugify
 
+class ProductCategory(models.Model):
+    title = models.CharField(max_length=300 , verbose_name='عنوان')
+    url_title = models.CharField(max_length=300 , verbose_name='عنوان در url')
+
+    def __str__(self):
+        return self.title
+
 
 class Product(models.Model):
     title = models.CharField(max_length=300)
+    category = models.ForeignKey(ProductCategory , on_delete=models.CASCADE , null=True)
     price = models.IntegerField()
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)] , default=0)
     short_description = models.CharField(max_length=360 , null=True)
