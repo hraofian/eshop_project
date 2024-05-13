@@ -11,10 +11,26 @@
         <a href="{{ product.get_absolute_url }}" 
         style=" color: black; text-decoration: none" >
         {{product.title}} - price : {{product.price}}</a>
-
     </li>
 
     {% endfor %}
 </ul>
+
+<h1>Products</h1>
+<p>
+  {{products}}
+</p>
+
+<h1>total_number_of_product</h1>
+<p>
+    {{total_number_of_product}}
+  </p>
+
+
+<h1>avaeage_rating</h1>
+<p>
+      {{avaeage_rating.rating__avg}}
+</p>
+
 
 {% endblock  %}
