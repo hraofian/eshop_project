@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+class ProductAdmin(admin.ModelAdmin):
+    readonly_fields = ['slug']
+
+admin.site.register(models.Product , ProductAdmin)
