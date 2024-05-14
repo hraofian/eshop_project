@@ -19,7 +19,7 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
-    title = models.CharField(max_length=300)
+    title = models.CharField(max_length=300, verbose_name='عنوان محصول')
     category = models.ManyToManyField(
         ProductCategory,
         related_name='product_categories',
@@ -27,7 +27,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='قیمت')
     short_description = models.CharField(max_length=360 , null=True , verbose_name='توضیحات کوتاه')
     description = models.TextField(verbose_name='توضیحات اصلی')
-    slug = models.SlugField(default="" , null=False , db_index=True , blank=True, unique=True)
+    slug = models.SlugField(default="" , null=False , db_index=True , blank=True, unique=True, verbose_name='عناون در url')
     is_active = models.BooleanField(default=False , verbose_name='فعال/غیر فعال')
     is_delete = models.BooleanField(verbose_name='حذف شده/ نشده')
 
@@ -35,7 +35,7 @@ class Product(models.Model):
         return reverse('product-detail' , args=[self.slug])
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        # self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):
