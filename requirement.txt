@@ -1,0 +1,5 @@
+asgiref==3.8.1
+Django==4.2
+django-render-partial @ file:///home/a/Documents/00-django/03-eshop_project/django-render-partial-0.4.tar.gz#sha256=7834485bbf061ee7c4f3e0d32257b5be3214bf8698a51638383ff754a08fc1e5
+sqlparse==0.5.0
+typing_extensions==4.11.0
