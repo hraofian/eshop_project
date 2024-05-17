@@ -1,4 +1,3 @@
-
 {% load render_partial %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +9,8 @@
     <title>
         {% block title %}{% endblock  %}
     </title>
- {% include "shared/header_references.html" %}
-</head><!--/head-->
+ {%include "shared/header_references.html"%}
+</head>
 
 <body>
 {% render_partial 'home_module.views.site_header_component'%}
