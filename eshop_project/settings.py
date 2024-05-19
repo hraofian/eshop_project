@@ -135,5 +135,3 @@ STATICFILES_DIRS =[
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-print('BASE_DIR=',BASE_DIR)
-print('STATICFILES_DIRS=',STATICFILES_DIRS )
