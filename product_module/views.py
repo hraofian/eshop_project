@@ -5,7 +5,7 @@ from .models import Product
 from django.http import Http404
 from django.db.models import Avg , Min , Max
 from django.views.generic.base import TemplateView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 
@@ -46,13 +46,18 @@ class ProductListView(ListView):
 #         'product': product,
 #     })
 
-class ProductDetailView(TemplateView):
+# class ProductDetailView(TemplateView):
+#     template_name = 'product_module/product_detail.html'
+
+#     def get_context_data(self, **kwargs):
+#         context =  super(ProductDetailView , self).get_context_data()
+#         slug = kwargs['slug']
+#         product = get_object_or_404(Product , slug=slug)
+#         context['product'] = product
+#         return context
+
+
+class ProductDetailView(DetailView):
     template_name = 'product_module/product_detail.html'
-
-    def get_context_data(self, **kwargs):
-        context =  super(ProductDetailView , self).get_context_data()
-        slug = kwargs['slug']
-        product = get_object_or_404(Product , slug=slug)
-        context['product'] = product
-        return context
-
+    model = Product
+ 
