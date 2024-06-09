@@ -3,13 +3,39 @@ from django.urls import reverse
 from .forms import *
 from .models import ContactUs 
 from django.views.generic.edit import FormView, CreateView
+from django.views import View
 
 
 
 class ContactUsView(CreateView):
     form_class = ContactUsModelForm
     template_name = 'contact_module/contact_us_page.html'
-    success_url = '/'
+    success_url = '/' 
+
+  
+def store_file(file):
+    with open('temp/image.jpg', 'wb+') as dest:
+        for chunk in file.chunks():
+            # print('chunk =', chunk)
+            dest.write(chunk)
+
+
+
+
+
+class CreatProfileView(View):
+    def get(self, request):
+        return render (request , 'contact_module/create_profile_page.html')
+    
+    def post(self, request):
+        store_file(request.FILES['profile'])
+        # return render(request, 'contact_module/create_profile_page.html')
+        print('request = ',request.FILES)
+        return redirect('/contact-us/create-profile/')
+
+
+
+
 
 
 
