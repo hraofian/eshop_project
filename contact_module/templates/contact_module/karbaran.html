@@ -1,0 +1,35 @@
+{% extends "shared/_layout.html" %}
+0
+{% block title %}
+لیست کاربران
+{% endblock  %}
+
+{% block content %}
+
+
+
+    <div class ="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    {% for karbar in karbaran %}
+                        <li>  
+                            
+                            <a href="{{karbar.photo.url}}">{{ karbar.name}}</a>
+                            <img src="{{karbar.photo.url}}">
+
+                        </li>
+                        
+                                  
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+        </dv>
+
+    </div>
+
+
+
+{% endblock  %}

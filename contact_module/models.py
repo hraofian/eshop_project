@@ -21,3 +21,31 @@ class ContactUs(models.Model):
     
 
  
+class UserProfile(models.Model):
+    name = models.CharField(max_length=300 , verbose_name='نام و نام خانوادگی')
+    photo = models.ImageField(upload_to='images', verbose_name='عکس پروفایل')
+
+    class Meta:
+        verbose_name = 'پروفایل'
+        verbose_name_plural = 'لیست پروفایل'
+
+    def __str__(self):
+        return self.name
+    
+
+class KarbaranTest(models.Model):
+    name = models.CharField(max_length=300 , verbose_name='نام و نام خانوادگی')
+    photo = models.ImageField(upload_to='images', verbose_name='عکس کاربر')
+
+    class Meta:
+        verbose_name = 'کاربر'
+        verbose_name_plural = 'لیست کاربران'
+
+    def __str__(self):
+        return self.name
+    
+
+
+
+
+

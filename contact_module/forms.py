@@ -77,7 +77,12 @@ class ContactUsModelForm(forms.ModelForm):
         }
 
 
- 
+
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=30)
+    file = forms.FileField()
+
+    
 
 
 

@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import *
 from .models import ContactUs 
-from django.views.generic.edit import FormView, CreateView
+from django.views.generic.edit import FormView, CreateView 
+from django.views.generic import ListView
 from django.views import View
+from .models import *
 
 
 
@@ -34,9 +36,35 @@ class CreatProfileView(View):
         return redirect('/contact-us/create-profile/')
 
 
+class UserProfileView(CreateView):
+    template_name = 'contact_module/user_profile.html'
+    model = UserProfile
+    fields = '__all__'
+    success_url = '/contact-us/profile/'
+    
+
+
+class KarbaranVoroodView(CreateView):
+    template_name = 'contact_module/karbaran_vorood.html'
+    model = KarbaranTest
+    fields = '__all__'
+    success_url = '/contact-us/karbaran-vorood/'
+    
 
 
 
+
+class UserProfileListView(ListView):
+    model = UserProfile
+    template_name = 'contact_module/user_profile_list.html'
+    context_object_name = 'profiles'
+
+
+class KarbaranTestView(ListView):
+    model = KarbaranTest
+    template_name = 'contact_module/karbaran.html'
+    context_object_name = 'karbaran'
+ 
 
 
 # class ContactUsView(FormView):
